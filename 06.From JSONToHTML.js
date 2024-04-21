@@ -1,13 +1,10 @@
 function fromJSONToHTMLTable(json) {
     let arr = JSON.parse(json);
- 
     let outputArr = ['<table>'];
     outputArr.push(makeKeyRow(arr));
     arr.forEach((obj) => outputArr.push(makeValueRow(obj)));
     outputArr.push('</table>');
- 
     console.log(outputArr.join('\n'));
- 
     function makeKeyRow(arr) {
         let result = '  <tr>';
         Object.keys(arr[0]).forEach(key => {
@@ -16,7 +13,6 @@ function fromJSONToHTMLTable(json) {
         result += '</tr>';
         return result;
     }
- 
     function makeValueRow(obj) {
         let result =  '  <tr>';
         Object.values(obj).forEach(value => {
@@ -25,7 +21,6 @@ function fromJSONToHTMLTable(json) {
         result += '</tr>';
         return result;
     }
- 
     function escapeHtml(value) {
         return value
             .toString()
